@@ -3,3 +3,7 @@ postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replace
 [GitHub](https://github.com/jelmerdemaat/postcss-base64) | [NPM](https://www.npmjs.com/package/postcss-base64) | [@jelmerdemaat](https://twitter.com/jelmerdemaat)
 
 *Early beta stage.*
+
+## Todo
+* Support file sources (in contrast to inline code)
+* Support other file types
