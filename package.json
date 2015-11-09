@@ -1,12 +1,14 @@
 {
   "name": "postcss-base64",
-  "description": "Replace inline SVG images in url() statements with base64 encoded strings.",
-  "dependencies": {
-    "postcss": "^5.0.11"
-  },
+  "version": "0.1.0",
+  "description": "Replace *inline* SVG images in url() statements with base64 encoded strings.",
+  "author": "Jelmer de Maat",
+  "keywords": ["base64", "postcss-plugin", "svg"],
   "scripts": {
       "test": "node test/test.js"
   },
-  "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
-  "version": "0.1.0"
+  "dependencies": {
+    "postcss": "^5.0.11"
+  },
+  "repository": "git@github.com:jelmerdemaat/postcss-base64.git"
 }
