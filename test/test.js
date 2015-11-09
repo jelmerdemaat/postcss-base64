@@ -4,12 +4,13 @@ var fs = require('fs'),
     base64 = require('../');
 
 var opts = {
-    debug: true
+    debug: false
 };
 
-var src = fs.readFileSync(path.join(__dirname, 'test.css')),
-    dest = './out.css';
+var src = fs.readFileSync(path.join(__dirname, 'test.css'));
 
-var output = postcss().use(base64()).process(src, { from: 'test.css', to: dest }).css;
+console.info('Input: \n', src.toString());
 
-console.info('Output: ', output);
+var output = postcss().use(base64(opts)).process(src).css;
+
+console.info('Output: \n', output);

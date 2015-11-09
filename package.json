@@ -4,6 +4,9 @@
   "dependencies": {
     "postcss": "^5.0.11"
   },
+  "scripts": {
+      "test": "node test/test.js"
+  },
   "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
   "version": "0.1.0"
 }
