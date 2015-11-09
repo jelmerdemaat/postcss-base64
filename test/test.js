@@ -1,16 +1,18 @@
 var fs = require('fs'),
     path = require('path'),
     postcss = require('postcss'),
+    test = require('ava'),
     base64 = require('../');
 
 var opts = {
     debug: false
 };
 
-var src = fs.readFileSync(path.join(__dirname, 'test.css'));
+var src = fs.readFileSync(path.join(__dirname, 'test.css')),
+    expected = fs.readFileSync(path.join(__dirname, 'expected.css')).toString(),
+    output = postcss().use(base64(opts)).process(src).css;
 
-console.info('Input: \n', src.toString());
-
-var output = postcss().use(base64(opts)).process(src).css;
-
-console.info('Output: \n', output);
+test('Check output', t => {
+    t.same(expected, output, 'Expected code and output code are not the same.');
+    t.end();
+});

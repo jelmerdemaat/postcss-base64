@@ -9,10 +9,13 @@
     "svg"
   ],
   "scripts": {
-    "test": "node test/test.js"
+    "test": "ava"
   },
   "dependencies": {
     "postcss": "^5.0.11"
   },
-  "repository": "git@github.com:jelmerdemaat/postcss-base64.git"
+  "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
+  "devDependencies": {
+    "ava": "^0.4.2"
+  }
 }
