@@ -2,10 +2,18 @@ var postcss = require('postcss');
 
 module.exports = postcss.plugin('postcss-base64', function (opts) {
     return function (css, result) {
-        opts = opts || { debug: false };
-        var output;
+        opts = opts || {
+            debug: false,
+            pattern: '<svg.*<\/svg>'
+        };
 
-        css.replaceValues(/<svg.*<\/svg>/, { fast: '<svg' }, function (string) {
+        var output, search;
+
+        if(!opts.pattern) throw new Error('No search pattern given.');
+
+        search = new RegExp(opts.pattern);
+
+        css.replaceValues(search, function (string) {
             output = 'data:image/svg+xml;base64,' + new Buffer(string).toString('base64');
             if(opts.debug) {
                 console.info('In: ', string);

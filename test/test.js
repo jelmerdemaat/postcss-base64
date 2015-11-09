@@ -5,7 +5,8 @@ var fs = require('fs'),
     base64 = require('../');
 
 var opts = {
-    debug: false
+    debug: true,
+    pattern: '<svg.*<\/svg>'
 };
 
 var src = fs.readFileSync(path.join(__dirname, 'test.css')),
