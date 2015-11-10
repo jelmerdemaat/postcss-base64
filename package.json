@@ -1,6 +1,6 @@
 {
   "name": "postcss-base64",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Replace *inline* SVG images in url() statements with base64 encoded strings.",
   "author": "Jelmer de Maat",
   "keywords": [
