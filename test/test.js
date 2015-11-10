@@ -6,7 +6,7 @@ var fs = require('fs'),
 
 var opts = {
     debug: true,
-    pattern: '<svg.*<\/svg>'
+    pattern: /<svg.*<\/svg>/i
 };
 
 var src = fs.readFileSync(path.join(__dirname, 'test.css')),
@@ -14,6 +14,6 @@ var src = fs.readFileSync(path.join(__dirname, 'test.css')),
     output = postcss().use(base64(opts)).process(src).css;
 
 test('Check output', t => {
-    t.same(expected, output, 'Expected code and output code are not the same.');
+    t.is(expected, output, 'Expected code and output code are not the same.');
     t.end();
 });
