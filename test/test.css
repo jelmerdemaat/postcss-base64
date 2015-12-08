@@ -5,3 +5,16 @@
 .test--2 {
     background-image: url('<svg viewBox="0 0 26 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 6.173L1.827 0 0 1.827l7.985 7.985L8 9.797l.015.015L16 1.827 14.173 0 8 6.173z"/></svg>');
 }
+
+.test--3 {
+    background-image: url('images/test.svg');
+}
+
+.test--4 {
+    background-image: url('images/test.png');
+}
+
+.test--5 {
+    /* Should not be affected by test */
+    background-image: url('images/test.jpg');
+}

@@ -13,6 +13,7 @@
     "test": "ava"
   },
   "dependencies": {
+    "fs": "0.0.2",
     "postcss": "^5.0.12"
   },
   "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
