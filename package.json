@@ -5,14 +5,15 @@
   "author": "Jelmer de Maat",
   "keywords": [
     "base64",
+    "encode",
     "postcss-plugin",
-    "svg"
+    "postcss"
   ],
   "scripts": {
     "test": "ava"
   },
   "dependencies": {
-    "postcss": "^5.0.11"
+    "postcss": "^5.0.12"
   },
   "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
   "devDependencies": {
