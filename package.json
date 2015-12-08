@@ -17,6 +17,6 @@
   },
   "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
   "devDependencies": {
-    "ava": "^0.4.2"
+    "ava": "^0.7.0"
   }
 }

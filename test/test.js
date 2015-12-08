@@ -15,5 +15,4 @@ var src = fs.readFileSync(path.join(__dirname, 'test.css')),
 
 test('Check output', t => {
     t.is(expected, output, 'Expected code and output code are not the same.');
-    t.end();
 });
