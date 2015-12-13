@@ -10,9 +10,7 @@ function getUrl(value) {
 
 module.exports = postcss.plugin('postcss-base64', function (opts) {
     return function (css, result) {
-        opts = opts || {
-            extensions: ['.svg']
-        };
+        opts = opts || {};
 
         var exts,
             ext,
