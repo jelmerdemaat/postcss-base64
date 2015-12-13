@@ -11,7 +11,6 @@ function getUrl(value) {
 module.exports = postcss.plugin('postcss-base64', function (opts) {
     return function (css, result) {
         opts = opts || {
-            debug: false,
             extensions: ['.svg']
         };
 

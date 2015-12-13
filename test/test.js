@@ -5,7 +5,6 @@ var fs = require('fs'),
     base64 = require('../');
 
 var opts = {
-    debug: false,
     extensions: ['.png', '.svg'],
     pattern: /<svg.*<\/svg>/i
 };
