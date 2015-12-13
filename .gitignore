@@ -1,3 +1,7 @@
+# Test
+test/output.css
+
+# Other
 node_modules/
 *.log
 .DS_Store

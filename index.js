@@ -1,41 +1,41 @@
 var fs = require('fs'),
     postcss = require('postcss');
 
+function getUrl(value) {
+    var reg = /url\((\s*)(['"]?)(.+?)\2(\s*)\)/g,
+        match = reg.exec(value),
+        url = match[3];
+    return url;
+}
+
 module.exports = postcss.plugin('postcss-base64', function (opts) {
     return function (css, result) {
         opts = opts || {
             debug: false,
-            extensions: ['.png', '.svg']
+            extensions: ['.svg']
         };
 
-        console.info(opts);
-
-        var exts, ext, search, file, image, output;
+        var exts,
+            ext,
+            search,
+            file,
+            fileContents,
+            output;
 
         if(opts.extensions) {
-            exts = opts.extensions.join('|\\');
-            search = new RegExp('url\((\'|\")?.*(\\' + exts + ')(\'|\")?(\))', 'i');
-
-            console.info(exts, search);
+            exts = '\\' + opts.extensions.join('|\\');
+            search = new RegExp('url\\(.*(' + exts + ').*\\)', 'i');
 
             css.replaceValues(search, function (string) {
-                file = string.replace(/(\'|\"|url\()/gi, '');
+                file = getUrl(string);
                 ext = file.split('.')[1];
 
                 if(ext === 'svg') ext = ext + '+xml';
 
-                image = fs.readFileSync(file);
+                fileContents = fs.readFileSync(file);
+                output = 'data:image/' + ext + ';base64,' + fileContents.toString('base64');
 
-                console.info(file, image, ext);
-
-                output = 'data:image/' + ext + ';base64,' + image.toString('base64');
-
-                if(opts.debug) {
-                    console.info('In: ', string);
-                    console.info('Out: ', output);
-                }
-
-                return 'url(\'' + output + '\'';
+                return string.replace(file, output);
             });
         }
 
@@ -47,11 +47,7 @@ module.exports = postcss.plugin('postcss-base64', function (opts) {
             search = opts.pattern;
 
             css.replaceValues(search, function (string) {
-                output = 'data:image/svg+xml;base64,' + new Buffer(string).toString('base64');
-                if(opts.debug) {
-                    console.info('In: ', string);
-                    console.info('Out: ', output);
-                }
+                output = new Buffer(string).toString('base64');
                 return output;
             });
         }
