@@ -3,6 +3,8 @@ postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replace
 [GitHub](https://github.com/jelmerdemaat/postcss-base64) | [NPM](https://www.npmjs.com/package/postcss-base64) | [@jelmerdemaat](https://twitter.com/jelmerdemaat)
 
 [![Build Status](https://travis-ci.org/jelmerdemaat/postcss-base64.svg?branch=master)](https://travis-ci.org/jelmerdemaat/postcss-base64)
+[![bitHound Code](https://www.bithound.io/github/jelmerdemaat/postcss-base64/badges/code.svg)](https://www.bithound.io/github/jelmerdemaat/postcss-base64)
+[![bitHound Dependencies](https://www.bithound.io/github/jelmerdemaat/postcss-base64/badges/dependencies.svg)](https://www.bithound.io/github/jelmerdemaat/postcss-base64/master/dependencies/npm)
 
 ## Use
 
