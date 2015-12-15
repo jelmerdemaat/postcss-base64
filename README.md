@@ -54,7 +54,7 @@ gulp.task('css', function () {
   gulp.src('test.css')
       .pipe(postcss([
         base64({
-          files: ['.svg']
+          extensions: ['.svg']
         })
       ]))
       .pipe(gulp.dest('output/'));
