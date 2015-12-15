@@ -9,20 +9,6 @@ function getUrl(value) {
     return url;
 }
 
-function checkFile(string) {
-    return new Promise(function(resolve, reject) {
-        fs.stat(string, function(err, stats) {
-            if(stats && stats.isFile()) {
-                // Assume it's a file
-                return resolve(true);
-            } else {
-                // Assume it's not a file
-                return resolve(false);
-            }
-        });
-    });
-}
-
 function replaceFiles(string) {
     file = getUrl(string);
     ext = file.split('.')[1];
@@ -68,13 +54,7 @@ module.exports = postcss.plugin('postcss-base64', function (opts) {
             search = opts.pattern;
 
             css.replaceValues(search, function (string) {
-                checkFile(string).then(function(isFile) {
-                    if(isFile) {
-                        return resolve(replaceFiles(string));
-                    } else {
-                        return resolve('kaas');
-                    }
-                });
+                return replaceInline(string);
             });
         }
     };
