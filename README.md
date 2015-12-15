@@ -6,6 +6,14 @@ postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replace
 [![bitHound Code](https://www.bithound.io/github/jelmerdemaat/postcss-base64/badges/code.svg)](https://www.bithound.io/github/jelmerdemaat/postcss-base64)
 [![bitHound Dependencies](https://www.bithound.io/github/jelmerdemaat/postcss-base64/badges/dependencies.svg)](https://www.bithound.io/github/jelmerdemaat/postcss-base64/master/dependencies/npm)
 
+## Install
+
+Install it from [NPM](https://www.npmjs.com/package/postcss-base64):
+
+```
+npm install postcss-base64
+```
+
 ## Use
 
 Load this plugin as a PostCSS module and give _either or both_ of these options:
