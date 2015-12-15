@@ -1,4 +1,4 @@
-postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replaces values inside `url()` functions with their base64 encoded strings.
+postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replaces urls or values inside `url()` functions with their base64 encoded strings.
 
 [GitHub](https://github.com/jelmerdemaat/postcss-base64) | [NPM](https://www.npmjs.com/package/postcss-base64) | [@jelmerdemaat](https://twitter.com/jelmerdemaat)
 
@@ -10,22 +10,68 @@ postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replace
 
 Load this plugin as a PostCSS module and give _either or both_ of these options:
 
-| Option | Lol whut? |
-| ------ | --------- |
-| extensions | An array of extensions of files that have to be encoded, including the leading dot. Example: `['.svg']` |
-| pattern | A valid regex pattern to match against the string inside `url()` definitions to encode. Example: `/<svg.*<\/svg>/i` |
+`extensions`
 
-Only strings inside `url(...)` functions are replaced.
+An array of extensions of files that have to be encoded, including the leading dot.
 
-Partially replacing strings with the `pattern` option is possible.
+_Example: `['.svg']`_
+
+`pattern`
+
+A valid regex pattern to match against the string inside `url()` definitions to encode. Can not match file urls (use `extensions` for this).
+
+_Example: `/<svg.*<\/svg>/i`_
+
+
 
 ### NodeJS
-
+Using PostCSS in NodeJS, the approach would be as follows:
 ```js
 var opts = {
-    extensions: ['.png', '.svg'],
-    pattern: /<svg.*<\/svg>/i
+    extensions: ['.png', '.svg'], // Replaces png and svg files
+    pattern: /<svg.*<\/svg>/i // Replaces inline <svg>...</svg> strings
 };
 
 output = postcss().use(base64(opts)).process(src).css;
+```
+
+### Gulp
+Using a build system like Gulp the approach would be as follows:
+```js
+var gulp = require('gulp'),
+    postcss = require('gulp-postcss'),
+    base64 = require('postcss-base64');
+
+gulp.task('css', function () {
+  gulp.src('test.css')
+      .pipe(postcss([
+        base64({
+          files: ['.svg']
+        })
+      ]))
+      .pipe(gulp.dest('output/'));
+});
+```
+
+### More info
+Only strings inside `url(...)` functions are replaced.
+
+Partially replacing strings with the `pattern` option is possible. If the input CSS is:
+
+```css
+.selector {
+  background-image: url('data:image/svg+xml;base64,<svg>...</svg>');
+}
+```
+And your options are:
+```js
+var opts = {
+  pattern: /<svg.*<\/svg>/i
+}
+```
+The output will be:
+```css
+.selector {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4...');
+}
 ```
