@@ -22,19 +22,19 @@ Load this plugin as a PostCSS module and give _either or both_ of these options:
 
 An array of extensions of files that have to be encoded, including the leading dot.
 
-_Example: `extensions: ['.svg']`_
+`extensions: ['.svg']`
 
 #### pattern
 
 A valid regex pattern to match against the string inside `url()` definitions to encode. Can not match file urls (use `extensions` for this).
 
-_Example: `pattern: /<svg.*<\/svg>/i`_
+`pattern: /<svg.*<\/svg>/i`
 
 #### prepend
 
 String value to prepend before the outputted base64 code. Works only in combination with the pattern approach, for now.
 
-_Example: `prepend: 'data:image/svg+xml;base64,'`_
+`prepend: 'data:image/svg+xml;base64,'`
 
 
 ### NodeJS
