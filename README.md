@@ -18,19 +18,19 @@ npm install postcss-base64
 
 Load this plugin as a PostCSS module and give _either or both_ of these options:
 
-`extensions`
+#### extensions
 
 An array of extensions of files that have to be encoded, including the leading dot.
 
-_Example: `['.svg']`_
+_Example: `extensions: ['.svg']`_
 
-`pattern`
+#### pattern
 
 A valid regex pattern to match against the string inside `url()` definitions to encode. Can not match file urls (use `extensions` for this).
 
-_Example: `/<svg.*<\/svg>/i`_
+_Example: `pattern: /<svg.*<\/svg>/i`_
 
-`prepend`
+#### prepend
 
 String value to prepend before the outputted base64 code. Works only in combination with the pattern approach, for now.
 
