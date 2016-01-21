@@ -1,6 +1,5 @@
 var fs = require('fs'),
-    postcss = require('postcss'),
-    Promise = require('promise');
+    postcss = require('postcss');
 
 function getUrl(value) {
     var reg = /url\((\s*)(['"]?)(.+?)\2(\s*)\)/g,
@@ -21,8 +20,9 @@ function replaceFiles(string) {
     return string.replace(file, output);
 }
 
-function replaceInline(string) {
+function replaceInline(string, opts) {
     output = new Buffer(string).toString('base64');
+    if(opts.prepend) output = opts.prepend + output;
     return output;
 }
 
@@ -54,7 +54,7 @@ module.exports = postcss.plugin('postcss-base64', function (opts) {
             search = opts.pattern;
 
             css.replaceValues(search, function (string) {
-                return replaceInline(string);
+                return replaceInline(string, opts);
             });
         }
     };

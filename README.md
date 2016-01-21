@@ -30,6 +30,11 @@ A valid regex pattern to match against the string inside `url()` definitions to 
 
 _Example: `/<svg.*<\/svg>/i`_
 
+`prepend`
+
+String value to prepend before the outputted base64 code. Works only in combination with the pattern approach, for now.
+
+_Example: `prepend: 'data:image/svg+xml;base64,'`_
 
 
 ### NodeJS
@@ -68,13 +73,14 @@ Partially replacing strings with the `pattern` option is possible. If the input 
 
 ```css
 .selector {
-  background-image: url('data:image/svg+xml;base64,<svg>...</svg>');
+  background-image: url('<svg>...</svg>');
 }
 ```
 And your options are:
 ```js
 var opts = {
-  pattern: /<svg.*<\/svg>/i
+  pattern: /<svg.*<\/svg>/i,
+  prepend: 'data:image/svg+xml;base64,'
 }
 ```
 The output will be:
