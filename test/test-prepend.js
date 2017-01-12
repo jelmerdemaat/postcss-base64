@@ -13,7 +13,7 @@ var opts = {
 var src = fs.readFileSync(path.join(__dirname, 'prepend.css')),
     expectedFile = fs.readFileSync(path.join(__dirname, 'prepend-expected.css')).toString(),
     output = postcss().use(base64(opts)).process(src).css,
-    outputFile = fs.writeFileSync('./prepend-output.css', output),
+    outputFile = fs.writeFileSync(path.join(__dirname, 'prepend-output.css'), output),
     outputFileContents = fs.readFileSync(path.join(__dirname, 'prepend-output.css')).toString();
 
 test('Check output prepended', t => {

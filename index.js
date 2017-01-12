@@ -1,4 +1,5 @@
 var fs = require('fs'),
+    path = require('path'),
     postcss = require('postcss');
 
 function getUrl(value) {
@@ -8,13 +9,13 @@ function getUrl(value) {
     return url;
 }
 
-function replaceFiles(string) {
+function replaceFiles(string, opts) {
     file = getUrl(string);
-    ext = file.split('.')[1];
+    ext = path.extname(file).replace('.', '');
 
     if(ext === 'svg') ext = ext + '+xml';
 
-    fileContents = fs.readFileSync(file);
+    fileContents = fs.readFileSync(path.join(opts.root, file));
     output = 'data:image/' + ext + ';base64,' + fileContents.toString('base64');
 
     return string.replace(file, output);
@@ -37,12 +38,16 @@ module.exports = postcss.plugin('postcss-base64', function (opts) {
             fileContents,
             output;
 
+        if(!opts.root) {
+            opts.root = process.cwd();
+        }
+
         if(opts.extensions) {
             exts = '\\' + opts.extensions.join('|\\');
             search = new RegExp('url\\(.*(' + exts + ').*\\)', 'i');
 
             css.replaceValues(search, function (string) {
-                return replaceFiles(string);
+                return replaceFiles(string, opts);
             });
         }
 
