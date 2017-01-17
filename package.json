@@ -1,6 +1,6 @@
 {
   "name": "postcss-base64",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Replace values in url() statements with base64 encoded strings.",
   "author": "Jelmer de Maat",
   "keywords": [
