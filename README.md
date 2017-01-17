@@ -30,6 +30,12 @@ A valid regex pattern to match against the string inside `url()` definitions to 
 
 `pattern: /<svg.*<\/svg>/i`
 
+#### root
+
+A root folder in which to search for the files. The path in the CSS file gets appended to this. Default: `process.cwd()` (current working directory).
+
+`root: 'any/path/to/files/'`
+
 #### prepend
 
 String value to prepend before the outputted base64 code. Works only in combination with the pattern approach, for now.
