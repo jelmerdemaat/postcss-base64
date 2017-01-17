@@ -60,9 +60,11 @@ module.exports = postcss.plugin('postcss-base64', function (opts) {
                     return;
                 };
 
-                node.replaceValues(search, function (string) {
-                    return replaceFiles(string, opts);
-                });
+                if(node.replaceValues) {
+                    node.replaceValues(search, function (string) {
+                        return replaceFiles(string, opts);
+                    });
+                }
             });
         }
 
