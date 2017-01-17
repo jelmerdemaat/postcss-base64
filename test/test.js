@@ -16,6 +16,6 @@ var src = fs.readFileSync(path.join(__dirname, 'test.css')),
     outputFile = fs.writeFileSync(path.join(__dirname, 'output.css'), output),
     outputFileContents = fs.readFileSync(path.join(__dirname, 'output.css')).toString();
 
-test('Check output', t => {
+test('Output is as expected', t => {
     t.is(expectedFile, outputFileContents, 'Expected code and output code are not the same.');
 });

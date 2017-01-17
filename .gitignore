@@ -1,6 +1,7 @@
 # Test
 test/output.css
 test/prepend-output.css
+test/fonts-output.css
 
 # Other
 node_modules/

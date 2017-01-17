@@ -42,6 +42,11 @@ String value to prepend before the outputted base64 code. Works only in combinat
 
 `prepend: 'data:image/svg+xml;base64,'`
 
+#### excludeAtFontFace
+
+Boolean, defines wether `@font-face` rules are ignored. Default: `true`.
+
+`excludeAtFontFace: false`
 
 ### NodeJS
 Using PostCSS in NodeJS, the approach would be as follows:

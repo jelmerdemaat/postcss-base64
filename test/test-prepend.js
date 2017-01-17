@@ -16,6 +16,6 @@ var src = fs.readFileSync(path.join(__dirname, 'prepend.css')),
     outputFile = fs.writeFileSync(path.join(__dirname, 'prepend-output.css'), output),
     outputFileContents = fs.readFileSync(path.join(__dirname, 'prepend-output.css')).toString();
 
-test('Check output prepended', t => {
+test('Output with `prepend` option is as expected', t => {
     t.is(expectedFile, outputFileContents, 'Expected code and output code are not the same.');
 });

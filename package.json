@@ -10,7 +10,7 @@
     "postcss"
   ],
   "scripts": {
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "dependencies": {
     "fs": "0.0.2",

@@ -42,12 +42,27 @@ module.exports = postcss.plugin('postcss-base64', function (opts) {
             opts.root = process.cwd();
         }
 
+        if(opts.excludeAtFontFace === undefined) {
+            opts.excludeAtFontFace = true;
+        }
+
         if(opts.extensions) {
             exts = '\\' + opts.extensions.join('|\\');
             search = new RegExp('url\\(.*(' + exts + ').*\\)', 'i');
 
-            css.replaceValues(search, function (string) {
-                return replaceFiles(string, opts);
+            css.each(function (node) {
+                if(
+                    opts.excludeAtFontFace &&
+                    node.type === 'atrule' &&
+                    node.name === 'font-face'
+                ) {
+                    // Don't do @font-face rules
+                    return;
+                };
+
+                node.replaceValues(search, function (string) {
+                    return replaceFiles(string, opts);
+                });
             });
         }
 

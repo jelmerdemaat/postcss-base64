@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'VagRoundedThin';
+    src: url('../Fonts/739798/86f553bb-9889-4e15-8969-ee64b49110e1.eot?#iefix');
+    src: url('../Fonts/739798/86f553bb-9889-4e15-8969-ee64b49110e1.eot?#iefix') format('eot'),
+         url('../Fonts/739798/979a7948-5a88-4fd1-a6e2-4698b64947f5.woff2') format('woff2'),
+         url('../Fonts/739798/5674c507-56c6-44d0-a73f-536f772201a4.woff') format('woff'),
+         url('../Fonts/739798/901e337a-35a9-4313-b7f2-e7557b153a9b.ttf') format('truetype'),
+         url('../Fonts/739798/82ff45d7-0bff-43e7-9dae-e19141e58f73.svg#82ff45d7-0bff-43e7-9dae-e19141e58f73') format('svg');
+}
+
+.test {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTggNi4xNzNMMS44MjcgMCAwIDEuODI3bDcuOTg1IDcuOTg1TDggOS43OTdsLjAxNS4wMTVMMTYgMS44MjcgMTQuMTczIDAgOCA2LjE3M3oiLz4KPC9zdmc+Cg==');
+}
