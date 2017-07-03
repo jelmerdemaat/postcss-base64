@@ -2,13 +2,14 @@
   "name": "postcss-base64",
   "version": "0.7.0",
   "description": "Replace values in url() statements with base64 encoded strings.",
-  "author": "Jelmer de Maat",
+  "author": "Jelmer de Maat <post@jelmerdemaat.nl> (https://github.com/jelmerdemaat)",
   "keywords": [
     "base64",
     "encode",
     "postcss-plugin",
     "postcss"
   ],
+  "main": "index.js",
   "scripts": {
     "test": "ava --verbose"
   },
@@ -16,7 +17,12 @@
     "postcss": "^5.0.12"
   },
   "repository": "git@github.com:jelmerdemaat/postcss-base64.git",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/jelmerdemaat/postcss-base64/issues"
+  },
+  "homepage": "https://github.com/jelmerdemaat/postcss-base64#readme",
   "devDependencies": {
-    "ava": "^0.17.0"
+    "ava": "^0.20.0"
   }
 }
