@@ -22,7 +22,7 @@ function replaceFiles(string, opts) {
 }
 
 function replaceInline(string, opts) {
-    output = new Buffer(string).toString('base64');
+    output = Buffer.from(string).toString('base64');
     if(opts.prepend) output = opts.prepend + output;
     return output;
 }
