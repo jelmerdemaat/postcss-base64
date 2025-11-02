@@ -1,10 +1,10 @@
 postcss-base64, a [PostCSS](https://github.com/postcss/postcss/) plugin, replaces urls or values inside `url()` functions with their base64 encoded strings.
 
-[GitHub](https://github.com/jelmerdemaat/postcss-base64) | [NPM](https://www.npmjs.com/package/postcss-base64) | [@jelmerdemaat](https://twitter.com/jelmerdemaat)
+[GitHub](https://github.com/jelmerdemaat/postcss-base64) | [NPM](https://www.npmjs.com/package/postcss-base64) | [@jelmerdemaat](https://mastodon.social/@jelmerdemaat)
 
-[![Build Status](https://travis-ci.org/jelmerdemaat/postcss-base64.svg?branch=master)](https://travis-ci.org/jelmerdemaat/postcss-base64)
-[![bitHound Code](https://www.bithound.io/github/jelmerdemaat/postcss-base64/badges/code.svg)](https://www.bithound.io/github/jelmerdemaat/postcss-base64)
-[![bitHound Dependencies](https://www.bithound.io/github/jelmerdemaat/postcss-base64/badges/dependencies.svg)](https://www.bithound.io/github/jelmerdemaat/postcss-base64/master/dependencies/npm)
+## Deprecation notice
+
+This plugin is no longer maintained. Basically, base64-encoding things in CSS is a bad idea, in this day and age. If you must, you should link to resources via [urls](https://developer.mozilla.org/en-US/docs/Web/CSS/url_function) instead. There will be no further updates.
 
 ## Install
 
